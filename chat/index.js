@@ -1,4 +1,3 @@
-const { Socket } = require('dgram');
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -9,7 +8,7 @@ const io = new Server(server);
 
 app.get('/',(req,res)=>{
     res.sendFile(__dirname,'/index.html');
-});
+ });
 
 io.on('connection',(Socket)=>{
     console.log('a user connected')
@@ -27,7 +26,7 @@ io.on('connection',(Socket)=>{
         io.emit('chat message', msg);
       });
 
-})
+ })
 
 server.listen(3000,()=>{
     console.log('listening on port 3000');
